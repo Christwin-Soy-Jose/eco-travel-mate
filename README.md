@@ -1,6 +1,7 @@
 # 🌿 Eco Travel Mate – AI-Powered Sustainable Travel Companion
 
-> 🚀 Built in 48 hours for **Green Spark Hackathon 2025**
+> 🚀 Built in 48 hours for **Green Spark Hackathon 2025**  
+> 🔗 [Live Preview](https://preview--eco-travel-mate.lovable.app)
 
 [![Hackathon](https://img.shields.io/badge/Hackathon-Green%20Spark%202025-orange)](https://github.com/Christwin-Soy-Jose/eco-travel-mate)
 [![Platform](https://img.shields.io/badge/Platform-Flutter%20%2B%20Firebase-blue)](https://flutter.dev)
@@ -10,45 +11,64 @@
 
 ## 🎯 Problem Statement
 
-Short-distance trips and unsustainable travel habits are significant contributors to carbon emissions and lifestyle diseases. Lack of awareness and real-time feedback make it difficult for individuals to shift toward greener choices.
+Short-distance trips and unsustainable travel habits are major contributors to:
+- 🌍 Carbon emissions  
+- 🚶 Lifestyle-related health issues  
+
+Many people lack **awareness** and **real-time feedback** to change their travel behavior.
 
 ---
 
 ## 🌱 Solution: Eco Travel Mate
 
 **Eco Travel Mate** is a mobile app that:
-- Automatically tracks user trips and transportation modes.
-- Calculates carbon emissions in real-time.
-- Provides greener travel suggestions.
-- Uses gamification to encourage eco-friendly habits.
+- Detects how you travel (walk, bike, car, etc.)
+- Calculates your carbon footprint
+- Suggests eco-friendly travel alternatives
+- Motivates you through gamification
 
 ---
 
 ## 🧩 Core Features
 
 ### 🚶 Smart Travel Detection
-Uses GPS and activity recognition to detect whether you’re walking, cycling, driving, or taking public transport — all without manual input.
+Automatically detects:
+- Walking
+- Cycling
+- Car
+- Public Transport
 
-### ♻️ CO₂ Emissions Calculator
-Converts every trip into a carbon impact metric using trusted emission factors.
+Powered by GPS and motion activity data — no manual input needed.
 
-> ✅ Example: 2 km car trip = ~0.5 kg CO₂.  
-> ✅ 2 km walk = 0 kg CO₂ and 75 kcal burned!
+---
+
+### ♻️ Real-Time CO₂ Emissions Calculator
+Calculates your impact for every trip:
+
+> ✅ Example:  
+> Car (2 km) → ~0.5 kg CO₂  
+> Walk (2 km) → 0 kg CO₂ and 75 kcal burned!
+
+---
 
 ### 🌿 Greener Suggestion Engine
-Suggests eco-friendly alternatives based on your route:
+Suggests better travel alternatives with motivation:
 
-> *“You could have burned 75 kcal by cycling this 2.3 km trip and saved 0.5 kg CO₂.”*
+> *“You could’ve saved 0.5 kg CO₂ and burned 75 kcal by walking.”*
 
-### 🎮 GreenPoints & Challenges
-- Earn **GreenPoints** for each eco-conscious action.
-- Take on **weekly challenges** like:
-  > “Swap 2 car trips with bike rides this week!”
+---
 
-### 👪 Community & Family Leaderboards
-- Join family or friend groups.
-- Compete based on GreenScores.
-- Improve community-wide awareness through fun competition.
+### 🎮 GreenPoints & Weekly Challenges
+- Earn **GreenPoints** for every eco action  
+- Take on **Weekly Challenges**:
+  > “Replace 2 car trips with walks this week!”
+
+---
+
+### 👨‍👩‍👧‍👦 Family Groups & Leaderboards
+- Join groups with family/friends  
+- Compete with **GreenScores**  
+- Build eco-friendly habits together 💚
 
 ---
 
@@ -67,23 +87,21 @@ Suggests eco-friendly alternatives based on your route:
 
 ## 📱 Screenshots (Demo)
 
-> Add your screenshots to the `assets/screenshots` folder and link them below.
+> Add screenshots in `assets/screenshots/` folder
 
-| Feature              | Description                                   | Preview                                                  |
-|----------------------|-----------------------------------------------|----------------------------------------------------------|
-| 🏠 Home Screen        | GreenScore, trip summary, tips                | ![](assets/screenshots/home_screen.png)                  |
-| 📊 Trip Log          | Detailed trip stats + carbon impact           | ![](assets/screenshots/trip_log.png)                     |
-| 💡 Suggestion Popup  | Eco tip after non-green trip                  | ![](assets/screenshots/suggestion.png)                   |
-| 🏆 Leaderboard       | Compare GreenScores across groups             | ![](assets/screenshots/leaderboard.png)                  |
+| Feature              | Description                                | Preview                                |
+|----------------------|--------------------------------------------|----------------------------------------|
+| 🏠 Home Screen        | GreenScore, trip summary, eco tips         | ![](assets/screenshots/home_screen.png) |
+| 📊 Trip Log          | Detailed trip history and CO₂ impact       | ![](assets/screenshots/trip_log.png)   |
+| 💡 Suggestions       | Smart travel alternatives                  | ![](assets/screenshots/suggestion.png) |
+| 🏆 Leaderboard       | Compete with friends/family                | ![](assets/screenshots/leaderboard.png)|
 
 ---
 
 ## 🚀 Getting Started Locally
 
-Clone and run the app on your local machine:
-
 ```bash
-# 1. Clone this repo
+# 1. Clone the repo
 git clone https://github.com/Christwin-Soy-Jose/eco-travel-mate.git
 cd eco-travel-mate
 
