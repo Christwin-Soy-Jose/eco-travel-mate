@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# 🌿 Eco Travel Mate – AI‑Powered Sustainable Travel Companion  
+*Built under 48 hours for Green Spark Hackathon 2025*
 
-## Project info
+[![Hackathon](https://img.shields.io/badge/Hackathon-Green%20Spark%202025-orange)](https://github.com/Christwin-Soy-Jose/eco-travel-mate)  
+[![Platform](https://img.shields.io/badge/Platform‑Flutter‑%2B‑Firebase-blue)]  
+[![License](https://img.shields.io/badge/License-MIT-green)]  
 
-**URL**: https://lovable.dev/projects/30a59709-fb7b-4ebc-af02-74c1c6e92c2e
+---
 
-## How can I edit this code?
+## 🎯 Problem Statement  
+Short urban trips and unsustainable travel habits contribute significantly to emissions and health issues. Users often lack real-time feedback on their travel choices, making sustainable behavior hard to adopt.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Our Solution: Eco Travel Mate
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/30a59709-fb7b-4ebc-af02-74c1c6e92c2e) and start prompting.
+A feature-rich mobile app that:
+- Automatically tracks transportation and trip types  
+- Calculates the carbon footprint of each journey  
+- Provides real-time smarter travel suggestions  
+- Gamifies sustainable habits with points, challenges, and dashboards  
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🧩 Core Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### **🚶‍♀️ Smart Travel Tracking**  
+- Uses GPS + motion sensors to detect walking, cycling, driving, or public transport  
+- Works passively—no manual input needed
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### **♻️ Emissions Calculator**  
+- Converts trip data into CO₂ output using trusted emission factors  
+- Example:  
+  - 2 km car ride → ~0.5 kg CO₂  
+  - 2 km walk → zero emissions
 
-Follow these steps:
+### **🌿 Smarter-Choice Engine**  
+Suggests greener alternatives post-trip:
+> _“Your 2.3 km car ride emitted 0.5 kg CO₂. Cycling this route burns ~75 kcal and saves emissions—want to try next time?”_
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### **🎮 GreenScore & Challenges**  
+- Earn “GreenPoints” for eco-friendly travel choices  
+- Weekly personalized challenges:  
+  _“Swap two car trips with walking or cycling”_
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### **👥 Community & Family Leadership**  
+- Build teams or families  
+- Compete in leaderboards  
+- Foster peer motivation and local eco-awareness  
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🧪 Tech Stack Overview
 
-**Edit a file directly in GitHub**
+| Component       | Technologies Used                        |
+|----------------|------------------------------------------|
+| **Frontend**   | Flutter (Dart)                        |
+| **Backend**    | Firebase (Auth, Firestore, Cloud Functions) or Flask |
+| **AI / Logic** | Emission calculators & trip classifiers |
+| **Location**   | GPS, Geolocator, Activity Recognition  |
+| **Maps**       | Google Maps / Mapbox APIs              |
+| **Gamification** | Points system, badges, notifications |
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📦 Demo Structure & Screenshots
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+*(Add screenshots inside `assets/screenshots` and link below)*
 
-## What technologies are used for this project?
+| Feature UI          | Description                            |
+|---------------------|----------------------------------------|
+| Home Screen         | Shows GreenScore, recent trips, tips   |
+| Trip Log            | Recent journey statistics + emissions  |
+| Suggestion Popup    | After completing a drive trip          |
+| Community Leaderboard | Family/team rankings                  |
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🚀 Running the App Locally
 
-## How can I deploy this project?
+```bash
+git clone https://github.com/Christwin-Soy-Jose/eco-travel-mate.git
+cd eco-travel-mate
 
-Simply open [Lovable](https://lovable.dev/projects/30a59709-fb7b-4ebc-af02-74c1c6e92c2e) and click on Share -> Publish.
+flutter pub get
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Ensure Firebase CLI setup and config files (google-services.json or .env)
+flutter run
