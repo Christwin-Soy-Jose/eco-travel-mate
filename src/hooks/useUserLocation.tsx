@@ -61,21 +61,31 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
           
           if (data.address) {
             const addr = data.address;
-            // Build detailed address
-            const parts = [];
+            // Build detailed address, avoiding duplicates
+            const parts: string[] = [];
+            const seen = new Set<string>();
             
-            if (addr.road) parts.push(addr.road);
-            if (addr.village || addr.hamlet) parts.push(addr.village || addr.hamlet);
-            if (addr.suburb || addr.neighbourhood) parts.push(addr.suburb || addr.neighbourhood);
-            if (addr.town || addr.city) parts.push(addr.town || addr.city);
-            if (addr.state_district) parts.push(addr.state_district);
-            if (addr.state) parts.push(addr.state);
+            const addIfUnique = (value: string | undefined) => {
+              if (value && !seen.has(value.toLowerCase())) {
+                parts.push(value);
+                seen.add(value.toLowerCase());
+              }
+            };
+            
+            // Extract location parts in order: road -> suburb/village -> town/city -> district -> state
+            addIfUnique(addr.road);
+            addIfUnique(addr.suburb || addr.neighbourhood || addr.hamlet);
+            addIfUnique(addr.village);
+            addIfUnique(addr.town || addr.city);
+            addIfUnique(addr.county !== addr.town ? addr.county : undefined);
+            addIfUnique(addr.state_district);
+            addIfUnique(addr.state);
             
             const fullAddr = parts.join(', ');
             setFullAddress(fullAddr);
             
             // Set city for short display
-            const cityName = addr.village || addr.town || addr.city || addr.hamlet || addr.state;
+            const cityName = addr.village || addr.town || addr.city || addr.hamlet || addr.suburb || addr.state;
             if (cityName) {
               setCity(cityName);
             }
