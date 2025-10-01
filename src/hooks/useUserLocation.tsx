@@ -44,10 +44,11 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
         setLongitude(lng);
         setLoading(false);
 
-        // Try to get city name using reverse geocoding (optional - only if mapbox token available)
-        const mapboxToken = localStorage.getItem('mapbox_token');
-        if (mapboxToken) {
-          try {
+        // Try to get city name using reverse geocoding
+        try {
+          // Try Mapbox first if token is available
+          const mapboxToken = localStorage.getItem('mapbox_token');
+          if (mapboxToken) {
             const response = await fetch(
               `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${mapboxToken}&types=place`
             );
@@ -55,9 +56,21 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
             if (data.features && data.features.length > 0) {
               setCity(data.features[0].text);
             }
-          } catch (e) {
-            console.log('Could not fetch city name');
+          } else {
+            // Fallback to free reverse geocoding API
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=10`
+            );
+            const data = await response.json();
+            if (data.address) {
+              const city = data.address.city || data.address.town || data.address.village || data.address.state;
+              if (city) {
+                setCity(city);
+              }
+            }
           }
+        } catch (e) {
+          console.log('Could not fetch city name');
         }
 
         toast({
