@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Navigation, Search } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useUserLocation } from "@/hooks/useUserLocation";
 
 const MapView = () => {
   const { toast } = useToast();
+  const { latitude, longitude } = useUserLocation();
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [mapboxToken, setMapboxToken] = useState<string>(
@@ -42,13 +44,34 @@ const MapView = () => {
 
     mapboxgl.accessToken = mapboxToken;
     
+    // Use user location if available, otherwise default
+    const center: [number, number] = (latitude && longitude) 
+      ? [longitude, latitude] 
+      : [0, 20];
+    const zoom = (latitude && longitude) ? 10 : 2;
+    
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/satellite-streets-v12',
-      center: [0, 20], // Default center
-      zoom: 2,
+      center,
+      zoom,
       projection: 'globe' as any
     });
+
+    // Add user location marker if available
+    if (latitude && longitude) {
+      new mapboxgl.Marker({ color: '#3b82f6', scale: 1.2 })
+        .setLngLat([longitude, latitude])
+        .setPopup(
+          new mapboxgl.Popup().setHTML(`
+            <div class="p-3">
+              <h3 class="font-bold">Your Location</h3>
+              <p class="text-sm text-gray-600">Current position</p>
+            </div>
+          `)
+        )
+        .addTo(map.current);
+    }
 
     // Add navigation controls
     map.current.addControl(
@@ -189,7 +212,7 @@ const MapView = () => {
         map.current.remove();
       }
     };
-  }, [isTokenSet, mapboxToken]);
+  }, [isTokenSet, mapboxToken, latitude, longitude]);
 
   return (
     <section className="py-20 px-6 bg-background">

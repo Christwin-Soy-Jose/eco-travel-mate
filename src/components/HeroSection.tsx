@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Leaf, Wind, Car } from "lucide-react";
 import heroImage from "@/assets/hero-eco-travel.jpg";
+import { useUserLocation } from "@/hooks/useUserLocation";
 
 export const HeroSection = () => {
+  const { requestLocation, latitude } = useUserLocation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background Image */}
@@ -40,9 +43,11 @@ export const HeroSection = () => {
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
           <Button 
             size="lg" 
-            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-glow"
+            onClick={requestLocation}
+            disabled={!!latitude}
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-glow disabled:opacity-50"
           >
-            Start Your Journey
+            {latitude ? '✓ Location Set' : 'Start Your Journey'}
           </Button>
           <Button 
             variant="outline" 

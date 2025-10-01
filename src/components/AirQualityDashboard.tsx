@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Wind, Eye, Droplets, Thermometer } from "lucide-react";
+import { useUserLocation } from "@/hooks/useUserLocation";
 
 interface AirQualityData {
   aqi: number;
@@ -39,6 +40,9 @@ const getStatusText = (status: string) => {
 };
 
 export const AirQualityDashboard = () => {
+  const { city } = useUserLocation();
+  const displayLocation = city || mockData.location;
+
   return (
     <section className="py-20 px-6 bg-gradient-secondary">
       <div className="max-w-6xl mx-auto">
@@ -71,7 +75,7 @@ export const AirQualityDashboard = () => {
                 className="w-full h-3 mb-4" 
               />
               <p className="text-muted-foreground text-lg">
-                📍 {mockData.location}
+                📍 {displayLocation}
               </p>
             </div>
           </Card>
